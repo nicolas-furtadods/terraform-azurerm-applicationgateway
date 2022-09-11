@@ -48,7 +48,7 @@ variable "resource_group_name" {
 ##########################################################################
 
 variable "subnet_id" {
-  description = "A subnet ID needed to create the virtual machine"
+  description = "A subnet ID needed to create the gateway resource"
   type        = string
 }
 
@@ -81,12 +81,14 @@ variable "gateway_type" {
 
 variable "capacity_min" {
   description = "The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU."
-  type        = string
+  type        = number
+  default = 1
 }
 
 variable "capacity_max" {
   description = "The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU."
-  type        = string
+  type        = number
+  default = 1
 }
 
 variable "sku_name" {

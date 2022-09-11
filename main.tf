@@ -21,8 +21,6 @@ resource "azurerm_key_vault_access_policy" "userAssigned-agw" {
 
 }
 
-
-
 resource "azurerm_web_application_firewall_policy" "waf" {
   name                = "waf-${local.naming}-001"
   location            = var.location
