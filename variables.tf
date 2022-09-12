@@ -36,6 +36,7 @@ variable "location" {
 variable "tags" {
   description = "Tags to apply to your resources"
   type        = map(string)
+  default = {}
 }
 
 variable "resource_group_name" {

@@ -32,7 +32,7 @@ module "applicationgateway" {
   application         = "azuretesting"
   environment         = "poc"
   location            = "francecentral"
-  resource_group_name = azurerm_resource_group.core_rg.name
+  resource_group_name = azurerm_resource_group.rg.name
   technical_zone      = "cm"
   tags = {
     "Application"        = "azuretesting",
@@ -42,9 +42,9 @@ module "applicationgateway" {
 # 1. Virtual Network Configuration
 ##########################################################################
 
-  subnet_id                  = "/subscriptions/{Subscription ID}/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyNet/subnets/MySubnet"
-  key_vault_id               = "/subscriptions/{Subscription ID}/resourceGroups/MyResourceGroup/providers/Microsoft.KeyVault/vaults/MyKeyVault"
-  log_analytics_workspace_id = "/subscriptions/{Subscription ID}/resourceGroups/MyResourceGroup/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName"
+  subnet_id     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1"
+  key_vault_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.KeyVault/vaults/MyKeyVault"
+  log_analytics_workspace_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName"
 
 ##########################################################################
 # 2. Application Gateway
