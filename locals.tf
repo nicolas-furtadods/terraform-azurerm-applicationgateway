@@ -10,8 +10,9 @@ locals {
   ##########################################################################
   frontend_ip_configuration = {
     attributes = {
-      private_ip_address_allocation = "Dynamic"
+      private_ip_address_allocation = "Static"
       subnet_id                     = var.subnet_id
+      private_ip_address            = var.private_ip_address
     }
   }
 

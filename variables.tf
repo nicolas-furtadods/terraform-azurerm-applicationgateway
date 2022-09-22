@@ -53,6 +53,11 @@ variable "subnet_id" {
   type        = string
 }
 
+variable "transversal_key_vault_subscription_id" {
+  description = "Enter the subscription id containing transversal resources like Key Vault"
+  type = string
+}
+
 variable "key_vault_id" {
   description = "Provide a key vault ID to store information and get certificates."
   type        = string
@@ -78,6 +83,12 @@ variable "gateway_type" {
     )
     error_message = "Valid values include: Public, Private."
   }
+}
+
+variable "private_ip_address" {
+  description = "(Optional) The Private IP Address to use for the Application Gateway. This is mandatory for gateway type `Private`"
+  type        = string
+  default     = null
 }
 
 variable "capacity_min" {

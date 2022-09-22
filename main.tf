@@ -6,6 +6,7 @@ resource "azurerm_user_assigned_identity" "id-agw" {
 }
 
 resource "azurerm_key_vault_access_policy" "userAssigned-agw" {
+  provider = azurerm.transversal
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = azurerm_user_assigned_identity.id-agw.principal_id
@@ -99,6 +100,7 @@ resource "azurerm_application_gateway" "agw" {
       name                          = "${local.frontend_ip_configuration_name}-private"
       subnet_id                     = agw.value.subnet_id
       private_ip_address_allocation = agw.value.private_ip_address_allocation
+      private_ip_address            = agw.value.private_ip_address
     }
   }
 

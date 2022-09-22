@@ -43,6 +43,7 @@ module "applicationgateway" {
 ##########################################################################
 
   subnet_id     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1"
+  transversal_key_vault_subscription_id = "00000000-0000-0000-0000-000000000000"
   key_vault_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.KeyVault/vaults/MyKeyVault"
   log_analytics_workspace_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName"
 
@@ -144,12 +145,14 @@ The following arguments are supported:
   - `ssl_certificate` - (Required) A `ssl_certificate` map as defined below.
   - `subnet_id` - (Required) A subnet ID needed to create the gateway resource.
   - `technical_zone` - (Required) A 2-digits technical zone which will be used by resources (in,ex,cm,sh).
+  - `transversal_key_vault_subscription_id` - (Required) "Enter the subscription id containing transversal resources like Key Vault.
 
 ##
   - `backend_settings` - (Optional)  A `backend_settings` map as defined below.
   - `capacity_min` - (Optional) The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU.
   - `capacity_max` - (Optional) The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU.
   - `gateway_type` - (Optional) The type of Application Gateway you want to use, valid values include: Public, Private.
+  - `private_ip_address` - (Optional)  The Private IP Address to use for the Application Gateway. This is mandatory for gateway type `Private`.
   - `ssl_policy` - (Optional)  A `ssl_policy` object as defined below.
   - `tags` - (Optional) A key-value map of string.
   
